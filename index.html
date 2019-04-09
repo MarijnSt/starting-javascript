@@ -160,13 +160,43 @@
             <button id="launchMe" class="btn btn-success play-button"><i class="fa fa-play"></i></button>
             <p id="listHolder">This is what you need to make delicious spaghetti:
                 <span>Pasta</span><span>Tomato Sauce</span><span>Cheese</span><span>Choose your final ingredient</span></p>
-
             <br>
             <br>
 
         </div>
         <script>
-            // Write your code here
+            //make list
+            var listHolder = document.querySelector("#listHolder");
+            var listItems = document.querySelectorAll("#listHolder > span");
+
+            var knopke = document.querySelector("#launchMe");
+            knopke.addEventListener("click", createList);            
+
+            //convert span into list with input as last element
+            function createList(){
+                var list = document.createElement("ul");
+                //fill ul
+                for (var t = 0; t < (listItems.length - 1); t++){
+                    var x = document.createElement("li");
+                    var y = document.createTextNode(listItems[t].textContent);
+                    x.appendChild(y);
+                    list.appendChild(x);
+                }
+                //last item
+                var x = document.createElement("li");
+                var z = document.createElement("input");
+                var placeholder = listItems[listItems.length-1].textContent;
+                z.setAttribute("type", "text");
+                z.setAttribute("placeholder", placeholder); 
+                x.appendChild(z);
+                list.appendChild(x);
+                listHolder.appendChild(list);
+                //remove elements
+                for (var t = (listItems.length - 1); t >= 0; t--){
+                    var x = listItems[t];
+                    listHolder.removeChild(x);
+                };
+            }
         </script>
     </div>
     <!-- END OF Part 3 -->
