@@ -101,7 +101,39 @@
             </table>
         </div>
         <script>
-            // Write your code here
+            var naam = document.querySelector("#name");
+            var pizza = document.querySelector("#pizza");
+            var size = document.querySelector("#size");
+            var remarks = document.querySelector("#remarks");
+            var table = document.querySelector("#pizzaOrders > tbody");
+
+            //Enter click event
+            table.addEventListener("keyup", function(e){
+                if (e.keyCode === 13) {
+                    var naamOrder = naam.value;
+                    var pizzaOrder = pizza.value;
+                    var sizeOrder = size.value;
+                    var remarksOrder = remarks.value;
+
+                    if (naamOrder === "" || pizzaOrder === "" || sizeOrder === "") {
+                        return;
+                    } else {
+                        var newRow = document.createElement("tr");
+                        table.prepend(newRow);
+                        cellToevoegen(newRow, remarksOrder);
+                        cellToevoegen(newRow, sizeOrder);
+                        cellToevoegen(newRow, pizzaOrder);
+                        cellToevoegen(newRow, naamOrder);
+
+                        //velden terug leeg maken
+                    }
+                }
+            });
+            //add tds function: i = row and j = text td
+            function cellToevoegen (i, j) {
+                var x = i.insertCell(0);
+                x.textContent = j;
+            }
         </script>
     </div>
     <!-- END OF Part 2 -->
