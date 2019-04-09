@@ -382,7 +382,38 @@
             </table>
         </div>
         <script>
-            // Write your code here
+            var input = document.querySelector("#searchInput");
+            var filter;
+
+            function zoeken(){
+                filter = input.value.toUpperCase();
+                var table = document.querySelector("#searchTable");
+                var tr = table.querySelectorAll("tr");
+                var td;
+                for (var i = 0; i < tr.length; i++){
+                    var abc = 0;
+                    var tdList = tr[i].querySelectorAll("td");
+
+                    for (var j = 0; j < tdList.length; j++){
+                        td = tdList[j];
+                        if (td) {
+                            compValue = td.textContent;
+                            if (compValue.toUpperCase().indexOf(filter) > -1) {
+                                abc = 1;
+                            } else {
+                                //display none
+                            }
+                        }
+                    }
+                    if (abc == 1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+            
+            input.addEventListener("input", zoeken);
         </script>
     </div>
     <!-- END OF Part 4 -->

@@ -18,3 +18,7 @@ https://www.w3schools.com/jsref/met_node_appendchild.asp
 
 https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild
 
+https://www.w3schools.com/howto/howto_js_filter_table.asp
+
+http://significanttechno.com/search-and-filter-on-a-html-table-using-javascript
+
