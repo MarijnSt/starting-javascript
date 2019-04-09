@@ -429,7 +429,30 @@
             <div id="moveAnimation" class="block"></div>
         </div>
         <script>
-            // Write your code here
+            var box = document.querySelector("#moveAnimation");
+
+            function toRight(){
+                box.style.transition = "left 2000ms";
+                box.style.left = "100%";
+            }
+            function toLeft(){
+                box.style.transition = "left 5000ms";
+                box.style.left = "0%";
+            }
+
+            function move(){
+                setInterval(function(){
+                    toRight();
+                    setTimeout(function(){
+                        toLeft();
+                    }, 2000);
+                }, 8000);
+            }
+
+            window.addEventListener("load", function(){
+                move();
+            });
+
         </script>
     </div>
     <!-- END OF Part 5 -->

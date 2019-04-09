@@ -1,5 +1,7 @@
 You can view my current excercise here: https://marijnst.github.io/fix-me/
 
+Part 5 still a bit wonky (only starts after +-10s)
+
 ### Resources
 
 https://www.w3schools.com/jsref/event_onchange.asp
