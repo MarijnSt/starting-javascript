@@ -459,7 +459,7 @@
 
     <!-- Part 6: Make it follow -->
     <div class="row">
-        <div class="col-12 bg-white shadow-sm p-4 mx-auto mt-4">
+        <div class="col-12 bg-white shadow-sm p-4 mx-auto mt-4" id="box">
             <h3>Part 6: make it follow</h3>
             <p>Below this, you have a div that needs to move left to right using JS for the motion. It should follow the mouse horizontally.</p>
             <hr>
@@ -468,7 +468,35 @@
             <div id="followMouse" class="block"></div>
         </div>
         <script>
-            // Write your code here
+            var containingBox = document.querySelector("#box");
+            var block = document.querySelector("#followMouse");
+            document.addEventListener("mousemove", getMouse);
+
+            var w, blockPos, mousePos, boxDimensions, widthEl, marginEl, mouseRelPos, posX;
+             
+
+            setInterval(followMouse, 10);
+
+            function getMouse(e){
+                mousePos = e.clientX;
+            }
+
+            function followMouse(e){
+                //get margin
+                w = window.innerWidth;
+                boxDimensions = containingBox.getBoundingClientRect();
+                widthEl = boxDimensions.width
+                marginEl = (w - widthEl) / 2;
+
+                //get relative mouse position
+                mouseRelPos = mousePos - marginEl;
+                posX = (mouseRelPos / widthEl) * 100;
+
+                //Pos aanpassen
+                if (posX >= 0 && posX <= 100){
+                    block.style.left = posX + "%";
+                }
+            }
         </script>
     </div>
     <!-- END OF Part 6 -->

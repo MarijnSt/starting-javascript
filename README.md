@@ -24,3 +24,13 @@ https://www.w3schools.com/howto/howto_js_filter_table.asp
 
 http://significanttechno.com/search-and-filter-on-a-html-table-using-javascript
 
+https://www.w3schools.com/jsref/event_clientx.asp
+
+https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect
+
+https://www.w3schools.com/jsref/prop_win_innerheight.asp
+
+https://codepen.io/redspiderfish/pen/MYmeYz
+
+
+
