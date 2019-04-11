@@ -506,14 +506,46 @@
         <div class="col-12 bg-white shadow-sm p-4 mx-auto mt-4">
             <h3>Part 7: Sliiiiiders</h3>
             <p>Recreate this very intuitive user interface. Insert the DOM nodes (html elements) using document.createElement();</p>
-            <img src="../input.gif" alt="Interface" />
+            <img src="input.gif" alt="Interface" />
             <hr/>
             <br/>
 
             <div id="target"></div>
         </div>
         <script>
-            // Write your code here
+            var previewValue, slider, value;
+            var description = document.createElement("p");
+            description.textContent = "Enter your first name:"
+            var inputField = document.createElement("div");
+            inputField.style.width = "300px";
+            inputField.style.height = "30px";
+            inputField.style.border = "1px solid black";
+            inputField.style.marginBottom = "20px";
+            target.append(description, inputField);
+
+            //hover div, change cursor to type
+            
+            //click div
+            inputField.addEventListener("click", function(){
+                //check if there's already a slider
+
+                //show sliders, add button
+                previewValue = document.createElement("span");
+                previewValue.style.marginRight = "10px";
+                slider = document.createElement("input");
+                slider.setAttribute("type", "range");
+                slider.setAttribute("min", "0");
+                slider.setAttribute("max", "25");
+                slider.setAttribute("value", "0");
+                target.append(previewValue, slider);
+
+                //check value
+                value = slider.value;
+                previewValue.textContent = value;
+
+                //convert value in letter
+            });
+
         </script>
     </div>
     <!-- END OF Part 7 -->
