@@ -513,14 +513,24 @@
             <div id="target"></div>
         </div>
         <script>
-            var previewValue, slider, value;
+            var previewValue = document.createElement("p");
+                previewValue.style.marginRight = "10px";
+                previewValue.style.width = "30px";
+                previewValue.style.display = "inline-block";
+            var slider = document.createElement("input");
+                slider.setAttribute("type", "range");
+                slider.setAttribute("min", "0");
+                slider.setAttribute("max", "25");
+                slider.setAttribute("value", "0");
             var description = document.createElement("p");
-            description.textContent = "Enter your first name:"
+                description.textContent = "Enter your first name:"
             var inputField = document.createElement("div");
-            inputField.style.width = "300px";
-            inputField.style.height = "30px";
-            inputField.style.border = "1px solid black";
-            inputField.style.marginBottom = "20px";
+                inputField.style.width = "300px";
+                inputField.style.height = "30px";
+                inputField.style.border = "1px solid black";
+                inputField.style.marginBottom = "20px";
+            var letter;
+
             target.append(description, inputField);
 
             //hover div, change cursor to type
@@ -528,22 +538,24 @@
             //click div
             inputField.addEventListener("click", function(){
                 //check if there's already a slider
+                if (target.ChildNodes > 2){
+                    return;
+                } else {
+                    convertToLetter();
+                    previewValue.textContent = letter;
+                    target.append(previewValue, slider);    
+                }
+            });
 
-                //show sliders, add button
-                previewValue = document.createElement("span");
-                previewValue.style.marginRight = "10px";
-                slider = document.createElement("input");
-                slider.setAttribute("type", "range");
-                slider.setAttribute("min", "0");
-                slider.setAttribute("max", "25");
-                slider.setAttribute("value", "0");
-                target.append(previewValue, slider);
+            function convertToLetter(){
+                var index = slider.value;
+                var letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+                letter = letters[index];
+            }
 
-                //check value
-                value = slider.value;
-                previewValue.textContent = value;
-
-                //convert value in letter
+            slider.addEventListener("input", function(){
+                convertToLetter();
+                previewValue.textContent = letter;
             });
 
         </script>
